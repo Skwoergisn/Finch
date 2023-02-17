@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Inspector
 
 extension FileSelect {
     class ViewModel: ObservableObject {
@@ -22,6 +23,10 @@ extension FileSelect {
                             DispatchQueue.main.async {
                                 if let urlData = urlData as? Data {
                                     let url = NSURL(absoluteURLWithDataRepresentation: urlData, relativeTo: nil) as URL
+                                    
+                                    Task {
+                                        print(try! await Inspector.inspect(appAtUrl: url))
+                                    }
                                     
                                     self.selectedFileURL = url
                                 }
