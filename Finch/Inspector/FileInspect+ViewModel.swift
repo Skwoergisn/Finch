@@ -6,16 +6,15 @@
 //
 
 import Foundation
+import Inspector
 
 extension FileInspect {
     class ViewModel: ObservableObject {
-        let appName: String
         
-        let files: [String]
+        let appInfo: AppInfo
         
-        init(appName: String, files: [String]) {
-            self.appName = appName
-            self.files = files
+        init(appInfo: AppInfo) {
+            self.appInfo = appInfo
         }
     }
 }

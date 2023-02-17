@@ -39,7 +39,9 @@ struct FileSelect: View {
         }
         .buttonStyle(.plain)
         .padding()
-        .onDrop(of: ["public.url","public.file-url"], isTargeted: nil, perform: viewModel.handleDrop)
+        .onDrop(of: ["public.url","public.file-url"], isTargeted: nil) {
+            viewModel.handleDrop($0)
+        }
     }
 }
 

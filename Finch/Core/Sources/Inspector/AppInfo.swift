@@ -13,4 +13,11 @@ public struct AppInfo {
     public let bundleVersion: String
 
     public let filePaths: [String]
+    
+    public init(name: String, marketingVersion: String, bundleVersion: String, filePaths: [String]) {
+        self.name = name
+        self.marketingVersion = marketingVersion
+        self.bundleVersion = bundleVersion
+        self.filePaths = filePaths
+    }
 }
