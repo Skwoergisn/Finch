@@ -14,43 +14,47 @@ import Foundation
 /// Rules
 /// - Includes: Filename, Filetype
 /// - Excludes: Filename, Filetype
+///
+
+public typealias RuleId = String
 
 public struct Parser {
-    /// Ensures all the given rules pass
-    public var includes: [Rule]
+
+    public let rules: Rules
     
-    /// Ensures all the given rules do not pass
-    public var excludes: [Rule]
+    public init(rules: Rules) {
+        self.rules = rules
+    }
     
     public func parse(_ paths: [String]) -> Result {
-        var includes: [Rule: [String]] = [:]
-        var excludes: [Rule: [String]] = [:]
-        var success: Bool = true
         
-        self.includes.forEach { includeRule in
-            let offendingPaths = paths.filter { !includeRule.passes($0) }
-            includes[includeRule] = offendingPaths
-            success = success && offendingPaths.isEmpty
+        var includes: [RuleId: [String]] = [:]
+        var excludes: [RuleId: [String]] = [:]
+        
+        self.rules.include.forEach { includeRule in
+            includes[includeRule.id] = paths.filter { !includeRule.matches(filePath:$0) }
         }
         
-        self.excludes.forEach { excludeRule in
-            let offendingPaths = paths.filter(excludeRule.passes)
-            excludes[excludeRule] = offendingPaths
-            success = success && offendingPaths.isEmpty
+        self.rules.exclude.forEach { excludeRule in
+            excludes[excludeRule.id] = paths.filter { excludeRule.matches(filePath:$0) }
         }
         
-        return .init(success: success, includes: includes, excludes: excludes)
+        return .init(includes: includes, excludes: excludes)
     }
 }
 
 public extension Parser {
+    
     struct Result {
-        let success: Bool
-        
         /// Rules where a pass was expected, but the given paths failed
-        let includes: [Rule: [String]]
+        public let includes: [RuleId: [String]]
         
         /// Rules where a pass was not expected, but the given paths succeeded
-        let excludes: [Rule: [String]]
+        public let excludes: [RuleId: [String]]
+        
+        public init(includes: [RuleId : [String]], excludes: [RuleId : [String]]) {
+            self.includes = includes
+            self.excludes = excludes
+        }
     }
 }

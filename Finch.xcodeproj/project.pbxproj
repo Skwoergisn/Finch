@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60F1915D299FBD4700A38C89 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F1915C299FBD4700A38C89 /* ResultView.swift */; };
 		E745F26F299FB75100053B43 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745F26E299FB75100053B43 /* RootView.swift */; };
 		E745F271299FB9BA00053B43 /* RootView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745F270299FB9BA00053B43 /* RootView+ViewModel.swift */; };
 		E745F275299FC4FD00053B43 /* CreateRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745F274299FC4FD00053B43 /* CreateRule.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		60F1915B299FA53B00A38C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		60F1915C299FBD4700A38C89 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		E745F26E299FB75100053B43 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E745F270299FB9BA00053B43 /* RootView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootView+ViewModel.swift"; sourceTree = "<group>"; };
 		E745F274299FC4FD00053B43 /* CreateRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRule.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				E773ACDD299FA80F00B352E7 /* Inspector */,
 				E7948D64299F874800D1BD19 /* FinchApp.swift */,
 				E7948D66299F874800D1BD19 /* FileSelect.swift */,
+				60F1915C299FBD4700A38C89 /* ResultView.swift */,
 				E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */,
 				E7948D68299F874900D1BD19 /* Assets.xcassets */,
 				E7948D6A299F874900D1BD19 /* Preview Content */,
@@ -203,6 +206,7 @@
 				E773ACDF299FA81800B352E7 /* FileInspect+ViewModel.swift in Sources */,
 				E745F271299FB9BA00053B43 /* RootView+ViewModel.swift in Sources */,
 				E7948D65299F874800D1BD19 /* FinchApp.swift in Sources */,
+				60F1915D299FBD4700A38C89 /* ResultView.swift in Sources */,
 				E745F275299FC4FD00053B43 /* CreateRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,7 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finch/Preview Content\"";
-				DEVELOPMENT_TEAM = 45V7YBK65N;
+				DEVELOPMENT_TEAM = 97H24G292P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finch/Info.plist;
@@ -364,7 +368,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finch/Preview Content\"";
-				DEVELOPMENT_TEAM = 45V7YBK65N;
+				DEVELOPMENT_TEAM = 97H24G292P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finch/Info.plist;

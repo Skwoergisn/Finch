@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Inspector
+import Parser
 
 extension FileSelect {
     
@@ -31,9 +32,10 @@ extension FileSelect {
         func handleDrop(_ items: [NSItemProvider]) -> Bool {
             guard let item = items.first else { return false }
             guard let identifier = item.registeredTypeIdentifiers.first else { return false }
-            
-            print("onDrop with identifier = \(identifier)")
             guard identifier == "public.url" || identifier == "public.file-url" else { return false }
+            
+            let rules = Rules(include: [], exclude: [FileExtensionRule.custom(extension: "plist")])
+            let parser = Parser(rules: rules)
             
             item.loadItem(forTypeIdentifier: identifier, options: nil) { (urlData, error) in
                 DispatchQueue.main.async { [weak self] in
@@ -42,8 +44,8 @@ extension FileSelect {
                         let url = NSURL(absoluteURLWithDataRepresentation: urlData, relativeTo: nil) as URL
                         
                         Task {
-                            try await Task.sleep(for: .seconds(3))
-                            self?.selectedApp = try await Inspector.inspect(appAtUrl: url)
+                            let app = try await Inspector.inspect(appAtUrl: url)
+                            self?.selectedApp = app
                             self?.isLoading = false
                             self?.onAppSelected(self?.selectedApp)
                         }
