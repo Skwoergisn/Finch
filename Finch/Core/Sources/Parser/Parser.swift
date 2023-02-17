@@ -47,7 +47,10 @@ public extension Parser {
     struct Result {
         let success: Bool
         
+        /// Rules where a pass was expected, but the given paths failed
         let includes: [Rule: [String]]
+        
+        /// Rules where a pass was not expected, but the given paths succeeded
         let excludes: [Rule: [String]]
     }
 }
