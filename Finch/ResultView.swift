@@ -57,7 +57,11 @@ struct ResultView: View {
                     Text(item.name)
                     Spacer()
                     if let count = item.count {
-                        Text("\(count)")
+                        if count == 0 {
+                            Text("✅")
+                        } else {
+                            Text("\(count) 🚨")
+                        }
                     }
                 }
             }

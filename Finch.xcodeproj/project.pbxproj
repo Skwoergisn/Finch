@@ -70,8 +70,8 @@
 		E773ACDD299FA80F00B352E7 /* Inspector */ = {
 			isa = PBXGroup;
 			children = (
-				E773ACDE299FA81800B352E7 /* FileInspect+ViewModel.swift */,
 				E773ACE0299FA82B00B352E7 /* FileInspect.swift */,
+				E773ACDE299FA81800B352E7 /* FileInspect+ViewModel.swift */,
 			);
 			path = Inspector;
 			sourceTree = "<group>";
@@ -101,8 +101,8 @@
 				60F1915B299FA53B00A38C89 /* Info.plist */,
 				E773ACDD299FA80F00B352E7 /* Inspector */,
 				E7948D64299F874800D1BD19 /* FinchApp.swift */,
-				E7948D66299F874800D1BD19 /* FileSelect.swift */,
 				60F1915C299FBD4700A38C89 /* ResultView.swift */,
+				E7948D66299F874800D1BD19 /* FileSelect.swift */,
 				E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */,
 				E7948D68299F874900D1BD19 /* Assets.xcassets */,
 				E7948D6A299F874900D1BD19 /* Preview Content */,

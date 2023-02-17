@@ -28,10 +28,6 @@ struct RootView: View {
         } detail: {
             if let app = viewModel.app {
                 Text("App: \(app.name)")
-            } else {
-                FileSelect(viewModel: .init(onAppSelected: { app in
-                    viewModel.app = app
-                }))
             }
         }
     }

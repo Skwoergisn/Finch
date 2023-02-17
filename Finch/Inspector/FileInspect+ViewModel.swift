@@ -31,7 +31,13 @@ extension FileInspect {
         }
         
         func handleAnalyseTapped() {
-            let rules = Rules(include: [], exclude: [FileExtensionRule.custom(extension: "plist")])
+            let rules = Rules(
+                include: [],
+                exclude: [
+                    FileExtensionRule.custom(extension: ".swift"),
+                    FileExtensionRule.custom(extension: ".plist")
+                ]
+            )
             let parser = Parser(rules: rules)
             let result = parser.parse(appInfo.filePaths)
             self.destination = .result(result: result)

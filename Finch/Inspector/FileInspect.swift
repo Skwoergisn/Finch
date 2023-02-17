@@ -27,7 +27,19 @@ struct FileInspect: View {
                 
             }
             .frame(maxWidth: .infinity)
-            Section("Files") {
+            
+            HStack {
+                Spacer()
+                Button {
+                    viewModel.handleAnalyseTapped()
+                } label: {
+                    Text("Analyse")
+                }
+                .buttonStyle(.borderedProminent)
+                Spacer()
+            }
+            
+            Section("\(viewModel.appInfo.filePaths.count) files") {
                 ScrollView {
                     VStack(alignment: .leading) {
                         ForEach(viewModel.appInfo.filePaths, id: \.self) { path in
@@ -37,19 +49,11 @@ struct FileInspect: View {
                     }
                     .padding()
                 }
-                .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 100)
+                .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 200)
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color.gray.opacity(0.3))
                 )
-            }
-            
-Text("\(viewModel.appInfo.filePaths.count) file(s)") 
-
-            Button {
-                viewModel.handleAnalyseTapped()
-            } label: {
-                Text("Analyse")
             }
         }
         .sheet(item: $viewModel.destination) { dst in
