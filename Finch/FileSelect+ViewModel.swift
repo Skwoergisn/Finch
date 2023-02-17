@@ -10,41 +10,49 @@ import SwiftUI
 import Inspector
 
 extension FileSelect {
+    
+    @MainActor
     class ViewModel: ObservableObject {
+        
         @Published
-        var selectedFileURL: URL?
+        var selectedApp: AppInfo?
+        
+        @Published
+        var isLoading: Bool = false
         
         func handleDrop(_ items: [NSItemProvider]) -> Bool {
-            if let item = items.first {
-                if let identifier = item.registeredTypeIdentifiers.first {
-                    print("onDrop with identifier = \(identifier)")
-                    if identifier == "public.url" || identifier == "public.file-url" {
-                        item.loadItem(forTypeIdentifier: identifier, options: nil) { (urlData, error) in
-                            DispatchQueue.main.async {
-                                if let urlData = urlData as? Data {
-                                    let url = NSURL(absoluteURLWithDataRepresentation: urlData, relativeTo: nil) as URL
-                                    
-                                    Task {
-                                        print(try! await Inspector.inspect(appAtUrl: url))
-                                    }
-                                    
-                                    self.selectedFileURL = url
-                                }
-                            }
+            guard let item = items.first else { return false }
+            guard let identifier = item.registeredTypeIdentifiers.first else { return false }
+            
+            print("onDrop with identifier = \(identifier)")
+            guard identifier == "public.url" || identifier == "public.file-url" else { return false }
+            
+            item.loadItem(forTypeIdentifier: identifier, options: nil) { (urlData, error) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.isLoading = true
+                    if let urlData = urlData as? Data {
+                        let url = NSURL(absoluteURLWithDataRepresentation: urlData, relativeTo: nil) as URL
+                        
+                        Task {
+                            try await Task.sleep(for: .seconds(3))
+                            self?.selectedApp = try await Inspector.inspect(appAtUrl: url)
+                            self?.isLoading = false
                         }
                     }
                 }
-                return true
-            } else {
-                print("item not here")
-                return false
             }
+            
+            return true
         }
         
         func selectFile() {
-            NSOpenPanel.openApp { (result) in
+            NSOpenPanel.openApp { [weak self] (result) in
                 if case let .success(url) = result {
-                    self.selectedFileURL = url
+                    self?.isLoading = true
+                    Task {
+                        self?.selectedApp = try await Inspector.inspect(appAtUrl: url)
+                        self?.isLoading = false
+                    }
                 }
             }
         }
@@ -61,8 +69,7 @@ extension NSOpenPanel {
         panel.allowedContentTypes = [.init(importedAs: "ipa")]
         panel.canChooseFiles = true
         panel.begin { (result) in
-            if result == .OK,
-               let url = panel.urls.first {
+            if let url = panel.urls.first {
                 completion(.success(url))
             } else {
                 completion(.failure(

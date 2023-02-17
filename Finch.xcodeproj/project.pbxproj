@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60F1915B299FA53B00A38C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileSelect+ViewModel.swift"; sourceTree = "<group>"; };
 		E7948D61299F874800D1BD19 /* Finch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7948D64299F874800D1BD19 /* FinchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinchApp.swift; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		E7948D63299F874800D1BD19 /* Finch */ = {
 			isa = PBXGroup;
 			children = (
+				60F1915B299FA53B00A38C89 /* Info.plist */,
 				E7948D64299F874800D1BD19 /* FinchApp.swift */,
 				E7948D66299F874800D1BD19 /* FileSelect.swift */,
 				E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */,
@@ -289,6 +291,7 @@
 				DEVELOPMENT_TEAM = 97H24G292P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Finch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,6 +323,7 @@
 				DEVELOPMENT_TEAM = 97H24G292P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Finch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

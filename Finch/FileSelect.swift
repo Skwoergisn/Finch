@@ -13,25 +13,33 @@ struct FileSelect: View {
     
     var body: some View {
         VStack {
-            Text("Click to select .ipa (or drag & drop an ipa in this window)")
-                .font(.title)
-            Button {
-                viewModel.selectFile()
-            } label: {
-                Image(systemName: "plus.square.dashed")
-                    .resizable()
-                    .foregroundColor(.gray)
-                    .opacity(0.3)
-                    .frame(width: 100, height: 100)
-                    .onDrop(of: ["public.url","public.file-url"], isTargeted: nil, perform: viewModel.handleDrop)
+            if viewModel.isLoading {
+                ProgressView()
+            } else if let url = viewModel.selectedApp {
+                Text("Selected file: \(url.name)")
+            } else {
+                Text("Click to select .ipa")
+                    .font(.title)
+                    .padding(.bottom, 32)
+                
+                Button {
+                    viewModel.selectFile()
+                } label: {
+                    Image(systemName: "plus.square.dashed")
+                        .resizable()
+                        .foregroundColor(.secondary.opacity(0.2))
+                        .frame(width: 150, height: 150)
+                }
+                
+                Text("or drag & drop an ipa in this window")
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .padding(.top, 32)
             }
         }
         .buttonStyle(.plain)
         .padding()
-        
-        if let url = viewModel.selectedFileURL {
-            Text("Selected file: \(url.path())")
-        }
+        .onDrop(of: ["public.url","public.file-url"], isTargeted: nil, perform: viewModel.handleDrop)
     }
 }
 

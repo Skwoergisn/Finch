@@ -8,18 +8,9 @@
 import Foundation
 import ZIPFoundation
 
-
-public struct App {
-    public let name: String
-    public let marketingVersion: String
-    public let bundleVersion: String
-
-    public let filePaths: [String]
-}
-
 public enum Inspector {
     
-    public static func inspect(appAtUrl sourceURL: URL) async throws -> App {
+    public static func inspect(appAtUrl sourceURL: URL) async throws -> AppInfo {
         
         let fileManager = FileManager()
         var destinationURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
@@ -41,7 +32,6 @@ public enum Inspector {
         let bundleDisplayName = itunesMetadataPlist["bundleDisplayName"] as! String
         let bundleShortVersionString = itunesMetadataPlist["bundleShortVersionString"] as! String
         let bundleVersion = itunesMetadataPlist["bundleVersion"] as! String
-        let fileExtension = itunesMetadataPlist["fileExtension"] as! String
         
         let payloadDirectory = destinationURL.appending(components: "Payload")
         let appDirectory = payloadDirectory.appending(component: try fileManager.contentsOfDirectory(atPath: payloadDirectory.path()).first!).path()
