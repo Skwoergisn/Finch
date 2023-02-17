@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E773ACDC299F909100B352E7 /* FileSelect+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */; };
+		E773ACDF299FA81800B352E7 /* FileInspect+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773ACDE299FA81800B352E7 /* FileInspect+ViewModel.swift */; };
+		E773ACE1299FA82B00B352E7 /* FileInspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773ACE0299FA82B00B352E7 /* FileInspect.swift */; };
 		E7948D65299F874800D1BD19 /* FinchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7948D64299F874800D1BD19 /* FinchApp.swift */; };
 		E7948D67299F874800D1BD19 /* FileSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7948D66299F874800D1BD19 /* FileSelect.swift */; };
 		E7948D69299F874900D1BD19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7948D68299F874900D1BD19 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		60F1915B299FA53B00A38C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileSelect+ViewModel.swift"; sourceTree = "<group>"; };
+		E773ACDE299FA81800B352E7 /* FileInspect+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileInspect+ViewModel.swift"; sourceTree = "<group>"; };
+		E773ACE0299FA82B00B352E7 /* FileInspect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInspect.swift; sourceTree = "<group>"; };
 		E7948D61299F874800D1BD19 /* Finch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7948D64299F874800D1BD19 /* FinchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinchApp.swift; sourceTree = "<group>"; };
 		E7948D66299F874800D1BD19 /* FileSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSelect.swift; sourceTree = "<group>"; };
@@ -38,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E773ACDD299FA80F00B352E7 /* Inspector */ = {
+			isa = PBXGroup;
+			children = (
+				E773ACDE299FA81800B352E7 /* FileInspect+ViewModel.swift */,
+				E773ACE0299FA82B00B352E7 /* FileInspect.swift */,
+			);
+			path = Inspector;
+			sourceTree = "<group>";
+		};
 		E7948D58299F874800D1BD19 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				60F1915B299FA53B00A38C89 /* Info.plist */,
+				E773ACDD299FA80F00B352E7 /* Inspector */,
 				E7948D64299F874800D1BD19 /* FinchApp.swift */,
 				E7948D66299F874800D1BD19 /* FileSelect.swift */,
 				E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */,
@@ -157,8 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E773ACE1299FA82B00B352E7 /* FileInspect.swift in Sources */,
 				E7948D67299F874800D1BD19 /* FileSelect.swift in Sources */,
 				E773ACDC299F909100B352E7 /* FileSelect+ViewModel.swift in Sources */,
+				E773ACDF299FA81800B352E7 /* FileInspect+ViewModel.swift in Sources */,
 				E7948D65299F874800D1BD19 /* FinchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finch/Preview Content\"";
-				DEVELOPMENT_TEAM = 97H24G292P;
+				DEVELOPMENT_TEAM = 45V7YBK65N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finch/Info.plist;
@@ -320,7 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Finch/Preview Content\"";
-				DEVELOPMENT_TEAM = 97H24G292P;
+				DEVELOPMENT_TEAM = 45V7YBK65N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Finch/Info.plist;
