@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AppInfo {
+public struct AppInfo: Hashable {
     public let name: String
     public let marketingVersion: String
     public let bundleVersion: String
