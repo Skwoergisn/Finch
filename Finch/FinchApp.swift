@@ -11,7 +11,7 @@ import SwiftUI
 struct FinchApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(apps: [])
+            RootView(viewModel: .init())
         }
     }
 }

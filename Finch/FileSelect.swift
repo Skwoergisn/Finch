@@ -47,6 +47,6 @@ struct FileSelect: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FileSelect(viewModel: .init())
+        FileSelect(viewModel: .init(onAppSelected: { _ in }))
     }
 }

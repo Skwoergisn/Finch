@@ -20,6 +20,14 @@ extension FileSelect {
         @Published
         var isLoading: Bool = false
         
+        let onAppSelected: (AppInfo?) -> Void
+        
+        init(onAppSelected: @escaping (AppInfo?) -> Void) {
+            self.selectedApp = nil
+            self.isLoading = false
+            self.onAppSelected = onAppSelected
+        }
+        
         func handleDrop(_ items: [NSItemProvider]) -> Bool {
             guard let item = items.first else { return false }
             guard let identifier = item.registeredTypeIdentifiers.first else { return false }
@@ -37,6 +45,7 @@ extension FileSelect {
                             try await Task.sleep(for: .seconds(3))
                             self?.selectedApp = try await Inspector.inspect(appAtUrl: url)
                             self?.isLoading = false
+                            self?.onAppSelected(self?.selectedApp)
                         }
                     }
                 }
@@ -52,6 +61,7 @@ extension FileSelect {
                     Task {
                         self?.selectedApp = try await Inspector.inspect(appAtUrl: url)
                         self?.isLoading = false
+                        self?.onAppSelected(self?.selectedApp)
                     }
                 }
             }

@@ -32,15 +32,13 @@ struct FileInspect: View {
                         ForEach(viewModel.appInfo.filePaths, id: \.self) { path in
                             Text(path)
                                 .foregroundColor(.gray)
-                                .frame(maxWidth: .infinity)
-                                .border(Color.blue)
                         }
                     }
                     .padding()
                 }
                 .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 100)
                 .background(
-                    RoundedRectangle(cornerRadius: 36)
+                    RoundedRectangle(cornerRadius: 8)
                         .fill(Color.gray.opacity(0.3))
                 )
             }
