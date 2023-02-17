@@ -16,7 +16,14 @@ struct RootView: View {
     var body: some View {
         NavigationSplitView {
             if let app = viewModel.app {
-                FileInspect(viewModel: .init(appInfo: app))
+                VStack {
+                    FileInspect(viewModel: .init(appInfo: app))
+                    Spacer()
+                }
+            } else {
+                FileSelect(viewModel: .init(onAppSelected: { app in
+                    viewModel.app = app
+                }))
             }
         } detail: {
             if let app = viewModel.app {
@@ -27,7 +34,7 @@ struct RootView: View {
                 }))
             }
         }
-
+        
     }
 }
 

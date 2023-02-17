@@ -13,7 +13,7 @@ struct FileInspect: View {
     var viewModel: ViewModel
     
     var body: some View {
-        List {
+//        List {
             VStack(alignment: .center, spacing: 20) {
                 RoundedRectangle(cornerRadius: 36, style: .continuous)
                     .fill(Color.gray.opacity(0.3))
@@ -25,24 +25,24 @@ struct FileInspect: View {
                 .font(.title)
                 
             }
-            .frame(maxWidth: .infinity)
-            Section("Files") {
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        ForEach(viewModel.appInfo.filePaths, id: \.self) { path in
-                            Text(path)
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    .padding()
-                }
-                .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 100)
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.gray.opacity(0.3))
-                )
-            }
-        }
+//            .frame(maxWidth: .infinity)
+//            Section("Files") {
+//                ScrollView {
+//                    VStack(alignment: .leading) {
+//                        ForEach(viewModel.appInfo.filePaths, id: \.self) { path in
+//                            Text(path)
+//                                .foregroundColor(.gray)
+//                        }
+//                    }
+//                    .padding()
+//                }
+//                .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 100)
+//                .background(
+//                    RoundedRectangle(cornerRadius: 8)
+//                        .fill(Color.gray.opacity(0.3))
+//                )
+//            }
+//        }
     }
     
     private var structure: [AppStructure] {
