@@ -28,7 +28,7 @@ extension Parser.Rule {
     /// Validates against any file that has the given mime type
     static func mimeType(_ mimeType: MimeType) -> Parser.Rule {
         .init(name: "MimeType") { path in
-            path.hasSuffix(mimeType.fileExtension)
+            path.hasSuffix(".\(mimeType.fileExtension)")
         }
     }
     
