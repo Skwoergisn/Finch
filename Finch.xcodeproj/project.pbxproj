@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E773ACDC299F909100B352E7 /* FileSelect+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */; };
 		E7948D65299F874800D1BD19 /* FinchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7948D64299F874800D1BD19 /* FinchApp.swift */; };
-		E7948D67299F874800D1BD19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7948D66299F874800D1BD19 /* ContentView.swift */; };
+		E7948D67299F874800D1BD19 /* FileSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7948D66299F874800D1BD19 /* FileSelect.swift */; };
 		E7948D69299F874900D1BD19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7948D68299F874900D1BD19 /* Assets.xcassets */; };
 		E7948D6C299F874900D1BD19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7948D6B299F874900D1BD19 /* Preview Assets.xcassets */; };
+		E7D20413299F882C002472A5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E7D20412299F882C002472A5 /* Core */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileSelect+ViewModel.swift"; sourceTree = "<group>"; };
 		E7948D61299F874800D1BD19 /* Finch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7948D64299F874800D1BD19 /* FinchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinchApp.swift; sourceTree = "<group>"; };
-		E7948D66299F874800D1BD19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E7948D66299F874800D1BD19 /* FileSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSelect.swift; sourceTree = "<group>"; };
 		E7948D68299F874900D1BD19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7948D6B299F874900D1BD19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E7D20410299F8820002472A5 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Finch/Core; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D20413299F882C002472A5 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,8 +40,10 @@
 		E7948D58299F874800D1BD19 = {
 			isa = PBXGroup;
 			children = (
+				E7D20410299F8820002472A5 /* Core */,
 				E7948D63299F874800D1BD19 /* Finch */,
 				E7948D62299F874800D1BD19 /* Products */,
+				E7D20411299F882C002472A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,7 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				E7948D64299F874800D1BD19 /* FinchApp.swift */,
-				E7948D66299F874800D1BD19 /* ContentView.swift */,
+				E7948D66299F874800D1BD19 /* FileSelect.swift */,
+				E773ACDB299F909100B352E7 /* FileSelect+ViewModel.swift */,
 				E7948D68299F874900D1BD19 /* Assets.xcassets */,
 				E7948D6A299F874900D1BD19 /* Preview Content */,
 			);
@@ -65,6 +73,13 @@
 				E7948D6B299F874900D1BD19 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E7D20411299F882C002472A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +98,9 @@
 			dependencies = (
 			);
 			name = Finch;
+			packageProductDependencies = (
+				E7D20412299F882C002472A5 /* Core */,
+			);
 			productName = Finch;
 			productReference = E7948D61299F874800D1BD19 /* Finch.app */;
 			productType = "com.apple.product-type.application";
@@ -137,7 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7948D67299F874800D1BD19 /* ContentView.swift in Sources */,
+				E7948D67299F874800D1BD19 /* FileSelect.swift in Sources */,
+				E773ACDC299F909100B352E7 /* FileSelect+ViewModel.swift in Sources */,
 				E7948D65299F874800D1BD19 /* FinchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,9 +301,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.skwoergisn.Finch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -311,9 +332,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.skwoergisn.Finch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -339,6 +362,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E7D20412299F882C002472A5 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E7948D59299F874800D1BD19 /* Project object */;
 }

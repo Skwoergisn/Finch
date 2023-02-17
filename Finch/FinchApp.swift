@@ -11,7 +11,7 @@ import SwiftUI
 struct FinchApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FileSelect(viewModel: .init())
         }
     }
 }
