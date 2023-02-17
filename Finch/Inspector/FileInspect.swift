@@ -88,6 +88,6 @@ extension FileInspect {
 
 struct FileInspect_Previews: PreviewProvider {
     static var previews: some View {
-        FileInspect(viewModel: .init(appInfo: .init(name: "My App", marketingVersion: "1.2.3", bundleVersion: "89238", filePaths: ["main.swift"])))
+        FileInspect(viewModel: .init(appInfo: .init(name: "My App", marketingVersion: "1.2.3", bundleVersion: "89238", filePaths: ["main.swift"]), onParsing: { _ in }))
     }
 }

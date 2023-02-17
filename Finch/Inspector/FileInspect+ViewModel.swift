@@ -26,8 +26,11 @@ extension FileInspect {
         
         @Published var destination: Destination?
         
-        init(appInfo: AppInfo) {
+        let onParsingResult: (Parser.Result) -> Void
+        
+        init(appInfo: AppInfo, onParsing: @escaping (Parser.Result) -> Void) {
             self.appInfo = appInfo
+            self.onParsingResult = onParsing
         }
         
         func handleAnalyseTapped() {
@@ -35,12 +38,13 @@ extension FileInspect {
                 include: [],
                 exclude: [
                     FileExtensionRule.custom(extension: ".swift"),
-                    FileExtensionRule.custom(extension: ".plist")
+                    FileExtensionRule.custom(extension: ".xcscheme")
                 ]
             )
             let parser = Parser(rules: rules)
             let result = parser.parse(appInfo.filePaths)
-            self.destination = .result(result: result)
+            onParsingResult(result)
+//            self.destination = .result(result: result)
         }
     }
 }

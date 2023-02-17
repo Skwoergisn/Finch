@@ -48,37 +48,19 @@ struct ResultView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("Results")
-                .padding()
-            Divider()
-            List(excludeItems, children: \.children) { item in
-                HStack {
-                    Text(item.name)
-                    Spacer()
-                    if let count = item.count {
-                        if count == 0 {
-                            Text("✅")
-                        } else {
-                            Text("\(count) 🚨")
-                        }
+        List(excludeItems, children: \.children) { item in
+            HStack {
+                Text(item.name)
+                Spacer()
+                if let count = item.count {
+                    if count == 0 {
+                        Text("✅")
+                    } else {
+                        Text("\(count) 🚨")
                     }
                 }
             }
-            
-            Divider()
-            
-            HStack {
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Done")
-                }
-            }
-            .padding()
         }
-        .frame(width: 800, height: 500)
     }
 }
 

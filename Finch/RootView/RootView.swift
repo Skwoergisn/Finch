@@ -13,11 +13,16 @@ struct RootView: View {
     @StateObject
     var viewModel: ViewModel
     
+    @State
+    var result: Parser.Result?
+    
     var body: some View {
         NavigationSplitView {
             if let app = viewModel.app {
                 VStack {
-                    FileInspect(viewModel: .init(appInfo: app))
+                    FileInspect(viewModel: .init(appInfo: app, onParsing: { result in
+                        self.result = result
+                    }))
                     Spacer()
                 }
             } else {
@@ -26,8 +31,8 @@ struct RootView: View {
                 }))
             }
         } detail: {
-            if let app = viewModel.app {
-                Text("App: \(app.name)")
+            if let result {
+                ResultView(result: result)
             }
         }
     }

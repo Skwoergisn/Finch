@@ -12,7 +12,7 @@ public enum FileExtensionRule: ParserRule {
     public var id: String { return "file-extension-rule-\(fileExtension)"}
     
     public func matches(filePath: String) -> Bool {
-        filePath.hasSuffix(fileExtension)
+        filePath.lowercased().hasSuffix(fileExtension.lowercased())
     }
     
     case swift
