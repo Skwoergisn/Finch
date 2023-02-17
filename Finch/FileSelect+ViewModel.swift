@@ -34,9 +34,6 @@ extension FileSelect {
             guard let identifier = item.registeredTypeIdentifiers.first else { return false }
             guard identifier == "public.url" || identifier == "public.file-url" else { return false }
             
-            let rules = Rules(include: [], exclude: [FileExtensionRule.custom(extension: "plist")])
-            let parser = Parser(rules: rules)
-            
             item.loadItem(forTypeIdentifier: identifier, options: nil) { (urlData, error) in
                 DispatchQueue.main.async { [weak self] in
                     self?.isLoading = true
